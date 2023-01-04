@@ -1,0 +1,54 @@
+{% extends 'global/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-Br">
+{% block content %}
+{% include 'espaco/partials/nav.html' %}
+
+<main>
+    <div class="atendimentos">
+        <div class="atend-recentes">
+            <div class="btncli">
+                <div class="pesquisa">
+                    <form method="GET"action="{% url 'espaco:buscaatend' %}">
+                        <div class="form-pesquisa">
+                            <input type="search" value="{{ request.GET.termo }}" class="form-control" placeholder="Digite sua pesquisa" name="busca">
+                        </div>
+                    </form>
+                </div>
+ 
+                <button class="btnord">
+                    <a href="{% url 'espaco:novoatend' %}">Novo</a>
+                </button>
+            </div>
+            <table class="table-atend">
+                <caption>Meus Atendimentos</caption>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Tecnica</th>
+                        <th>Tempo</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for atendimento in atendimentos %}
+                    <tr>
+                        <td>{{ atendimento.id }}</td>
+                        <td>
+                            <a href="{% url 'espaco:veratendimento' atendimento.id %}">{{ atendimento.nome }}</a>
+                        </td>
+                        <td>{{ atendimento.tecnicaaplicada }}</td>
+                        <td>{{ atendimento.tempoconsulta }}</td>
+                        <td>{{ atendimento.dataatend }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>    
+</main>
+
+
+{% endblock %}

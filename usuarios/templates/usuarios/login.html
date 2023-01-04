@@ -1,0 +1,30 @@
+{% extends 'global/base.html' %}
+{% load static %}
+{% block content %}
+
+<main>
+    <div class="bodylogin">
+        <div class="login-tras">
+            <form method="POST" action="{% url 'usuarios:login' %}">
+                {% csrf_token %}
+                <div class="login">
+                    <h1>LOGIN</h1>
+                    <label for="usuario">Usuario:</label>
+                    <input type="text" id="usuario" name="usuario" value="{{request.POST.usuario}}">
+
+                    <label for="senha">Senha:</label>
+                    <input name="senha" type="password" id="senha">
+
+                    <button onclick="btnLink()" class="btnlogar">Entrar</button>
+                </div>
+
+            </form>
+            <div class="imgmao">
+                <img src={% static '/img/paralogin.png' %} alt="">
+            </div>
+        </div>
+
+    </div>
+
+</main>
+{% endblock content %}

@@ -1,0 +1,69 @@
+{% extends 'global/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-Br">
+{% block content %}
+
+{% include 'espaco/partials/nav.html' %}
+<div class='vertudo'>
+    <div class="ajeitar">       
+    
+        <main>
+            
+            
+            <div class="verclientes">
+                
+                <div class="btncliente"> 
+
+                    <div class="clientesbuttonedit">
+                        <button class"editar"><a href="{% url 'espaco:editaratendimento' atendimento.id %}">Editar</a></button>
+                    </div>
+                    <div class="clientesbutton">
+                        <button class"excluir" ><a onclick="excluirconfirm(); return false" id="deletar" href="{% url 'espaco:excluiratendimento'  atendimento.id%}">Excluir</a></button>
+                    </div>
+
+
+
+            
+                </div>  
+                <h1 class="clientename">{{ atendimento.nome }}</h1>
+                <dl class="conteudo">
+                <dt>CPF:</dt>
+                <dd>{{ atendimento.cpf }}</dd>
+
+                <dt>Data do Atendimento:</dt>
+                <dd>{{ atendimento.dataatend }}</dd>
+
+                <dt>Tecnica Aplicada:</dt>
+                <dd>{{ atendimento.tecnicaaplicada }}</dd>
+
+                <dt>Tipo de Consulta:</dt>
+                <dd>{{ atendimento.tipoconsulta }}</dd>
+
+                <dt>Tempo do Atendimento:</dt>
+                <dd>{{ atendimento.tempoconsulta }}</dd>
+
+                <dt>Queixa Principal:</dt>
+                <dd>{{ atendimento.queixaprincipal }}</dd>
+
+
+                <dt>Medicamentos:</dt>
+                <dd>{{ atendimento.medicamentos }}</dd>
+
+
+                <dt>Tempo da queixa:</dt>
+                <dd>{{ atendimento.tempoqueixa }}</dd>
+
+                <dt>Obs Atendimento:</dt>
+                <dd>{{ atendimento.obsatend }}</dd>
+                </dl>
+    
+            </div>
+  
+
+        </main>
+
+    </div>   
+
+</div>
+{% endblock %}

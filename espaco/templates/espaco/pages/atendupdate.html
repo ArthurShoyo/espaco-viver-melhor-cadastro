@@ -1,0 +1,92 @@
+{% extends 'global/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-Br">
+{% block content %}
+{% include 'espaco/partials/nav.html' %}
+
+    <main>
+        <!--<div tabindex="0" onclick="closeSidebar()" class="content" id="content"></div>-->
+        <div tabindex="0" onclick="closeSidebar()" id="content" class="container">
+            <!--<div class="form-img">
+                <img src="{% static 'img/undraw_medicine_b-1-ol.svg' %}" alt="">
+            </div>-->
+            <div class="form">
+                <form method="POST" action="{% url 'espaco:atendupdate' atendimento.id %}">
+                    {% csrf_token %}
+                    <div class="form-header">
+                        <div class="title">
+                            <h1>ADICIONAR ATENDIMENTO</h1>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label for="name">Nome</label>
+                            <input type="text" name="name" id="name" placeholder="NOME" value="{{ atendimento.nome }}">
+                        </div>
+
+                        <div class="input-box">
+                            <label for="cpf">CPF</label>
+                            <input type="text" name="cpf" id="cpf" placeholder="CPF" value="{{ atendimento.cpf }}">
+                        </div>
+
+                        
+
+                        <div class="input-box">
+                            <label for="tecncaaplicada">Tecnica Aplicada</label>
+                            <input type="text" name="tecnicaaplicada" id="tecncaaplicada" value="{{ atendimento.tecnicaaplicada }}">
+                        </div>
+                        
+
+                        <div class="input-box">
+                            <label for="tempoconsulta">Tempo Consulta</label>
+                            <input type="text" name="tempoconsulta" id="tempoconsulta" value="{{ atendimento.tempoconsulta }}">
+                        </div>
+
+                        <div class="input-box">
+                            <label for="queixaprincipal">Queixa Principal</label>
+                            <input type="text" name="queixaprincipal" id="queixaprincipal" value="{{ atendimento.queixaprincipal }}">
+                        </div>
+
+                        <div class="input-box">
+                            <label for="tempoqueixa">Tempo da Queixa</label>
+                            <input type="text" name="tempoqueixa" id="tempoqueixa" value="{{ atendimento.tempoqueixa }}">
+                        </div>
+
+                        <div class="input-box">
+                            <label for="tipoconsulta">Tipo de Consulta</label>
+                            <select name="tipoconsulta" id="uf">
+                                <option value="{{ atendimento.tipoconsulta }}">{{ atendimento.tipoconsulta }}</option>
+                                <option value=""></option>
+                                <option value="Online">Online</option>
+                                <option value="Presencial">Presencial</option>
+
+                            </select>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="medicamentos">Medicamentos</label>
+                            <input type="text" name="medicamentos" id="medicamentos" value="{{ atendimento.medicamentos }}">
+                        </div>
+
+                        <div class="input-box" id="obs">
+                            <label for="obsatend">Obs Atendimento:</label>
+                            <textarea name="obsatend" id="obs" cols="120" rows="10">{{ atendimento.obsatend }}</textarea>
+                        </div>
+
+
+
+
+
+                    <div class="add-client">
+                        <button type="submit"><a href="#"></a>Adicionar Atendimento</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
+
+
+
+</html>

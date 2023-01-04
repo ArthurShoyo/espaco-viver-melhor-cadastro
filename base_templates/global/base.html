@@ -1,0 +1,16 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+{% include 'espaco/partials/head.html' %}
+
+<body>
+  <div class="body_total">
+    {% block content %}{% endblock content %}
+  </div>  
+    
+</body>
+
+<script src="{% static 'js/header.js' %}"></script>
+</html>

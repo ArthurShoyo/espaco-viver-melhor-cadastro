@@ -1,0 +1,44 @@
+{% extends 'global/base.html' %}
+{% load static %}
+
+{% block content %}
+{% include "espaco/partials/nav.html" %}
+<main>
+    <div class="table-div">
+        <table class="table">
+            <div class="pesquisa">
+                <form method="GET"action="{% url 'espaco:busca' %}">
+                    <div class="form-pesquisa">
+                        <input type="search" value="{{ request.GET.termo }}" class="form-control" placeholder="Digite sua pesquisa" name="termo">
+                    </div>
+                </form>
+            </div>
+            <caption>Meus Clientes</caption>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Cpf</th>
+                    <th>Idade</th>
+                    <th>Telefone</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cliente in clientes %}
+                <tr>
+                    <td>{{ cliente.id }}</td>
+                    <td>
+                        <a href="{% url 'espaco:ver_cliente'  cliente.id %}">{{ cliente.nome }}</a>
+                    </td>
+                    <td>{{ cliente.cpf }}</td>
+                    <td>{{ cliente.idade }}</td>
+                    <td>{{ cliente.telefone }}</td>
+                    <td><a onclick="excluirconfirm(); return false" id="deletar" href="{% url 'espaco:excluircliente' cliente.id %}">X</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+
+{% endblock content %}

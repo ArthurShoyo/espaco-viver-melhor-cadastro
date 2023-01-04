@@ -1,0 +1,104 @@
+{% extends 'global/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-Br">
+{% block content %}
+
+{% include 'espaco/partials/nav.html' %}
+<div class='vertudo'>
+    <div class="ajeitar">       
+    
+        <main>
+            
+            
+            <div class="verclientes">
+
+                
+                <div class="btncliente"> 
+                    <div class="clientesbuttonedit">
+                        <button class"editar"><a href="{% url 'espaco:editarcliente' cliente.id %}">Editar</a></button>
+                    </div>
+                    <div class="clientesbutton">
+                        <button class"excluir"><a onclick="excluirconfirm(); return false" href="{% url 'espaco:excluircliente' cliente.id %}">Excluir</a></button>
+                    </div>
+            
+                </div>  
+                <h1 class="clientename">{{ cliente.nome }}</h1>
+                <dl class="conteudo">
+                <dt>CPF:</dt>
+                <dd>{{ cliente.cpf }}</dd>
+
+                <dt>Data de Nascimento:</dt>
+                <dd>{{ cliente.datenasc }}</dd>
+
+                <dt>Profissão:</dt>
+                <dd>{{ cliente.profissao }}</dd>
+
+                <dt>Endereço:</dt>
+                <dd>{{ cliente.endereco }}</dd>
+
+                <dt>Cidade:</dt>
+                <dd>{{ cliente.cidade }}</dd>
+
+                <dt>UF:</dt>
+                <dd>{{ cliente.uf }}</dd>
+
+                <dt>Pais:</dt>
+                <dd>{{ cliente.pais }}</dd>
+
+                <dt>Email:</dt>
+                <dd>{{ cliente.email }}</dd>
+
+                <dt>Telefone:</dt>
+                <dd>{{ cliente.telefone }}</dd>
+
+                <dt>Genero:</dt>
+                <dd>{{ cliente.genero }}</dd>
+
+                <dt>Obs Recepção:</dt>
+                <dd>
+                    {{ cliente.obsrecepcao }}
+                </dd>
+
+                <dt>Filhos:</dt>
+                <dd>{{ cliente.filhos }}</dd>
+
+                <dt>Idade:</dt>
+                <dd>{{ cliente.idade }}</dd>
+
+                <dt>Opção Sexual:</dt>
+                <dd>{{ cliente.opcaosexual }}</dd>
+
+                <dt>Doença Diagnosticada:</dt>
+                <dd>{{ cliente.doencadiagnosticada }}</dd>
+
+                <dt>Faz uso de Medicamentos:</dt>
+                <dd>{{ cliente.fazusodemedicamentos }}</dd>
+
+                <dt>Obs Terapeuta:</dt>
+                <dd>
+                    {{ cliente.obsterapeuta }} <br>
+                </dd>
+
+                <dt>Obs Complementares:</dt>
+                <dd>            
+                    {{ cliente.obscomplementares }}
+                </dd>
+
+
+
+
+                </dl>
+                
+    
+            </div>
+  
+
+
+    </div> 
+        </main>
+
+    </div>   
+ 
+</div>
+{% endblock %}
